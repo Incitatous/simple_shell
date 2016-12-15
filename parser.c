@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+/* ADD A MALLOC FOR EACH TOKEN: USE A STRLEN TO COUNT THEIR LENGTH FIRST?*/
 int main(void)
 {
 	char *buffer, *tok;
@@ -14,6 +15,7 @@ int main(void)
 	tok = strtok(buffer, " \t");
 	while (tok != '\0')
 	{
+		malloc(
 		printf("%s\n", tok);
 		tok = strtok(NULL, " \t");
 	}
