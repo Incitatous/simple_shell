@@ -1,23 +1,49 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-/* ADD A MALLOC FOR EACH TOKEN: USE A STRLEN TO COUNT THEIR LENGTH FIRST?*/
-int main(void)
+char **parser(char *res)
 {
-	char *buffer, *tok;
+	char *tok;
+	char **store;
 	ssize_t max;
-	ssize_t res;
+	int i, j, k, l;
 
 	max = 100;
-	buffer = (char *)malloc(max * sizeof(char));
-	printf("$ ");
-	res = getline(&buffer, &max, stdin);
-	tok = strtok(buffer, " \t");
+	tok = strtok(res, " \t");
+	i = j = k = 0;
+	while (res[i] != '\0')
+	{
+		if (res[i] != ' ' && res[i] != '\t')
+			k = 0;
+		if (res[i] != ' ' && res[i] != '\t' && k == 0)
+		{
+			k = 1;
+			j++;
+		}
+		
+		i++;
+	}
+	store = malloc(sizeof(char *) * (j + 1));
+	if (store == NULL)
+		return(NULL);
+	i = 0;
+	store[i] = tok;
 	while (tok != '\0')
 	{
-		malloc(
 		printf("%s\n", tok);
 		tok = strtok(NULL, " \t");
+		store[i] = tok;
+		i++;
 	}
-	return (0);
+	return (store);
+}
+
+int wordlength(char *word)
+{
+	int i, wc;
+
+	wc = 0;
+	while (word[i] != ' ' && word[i] != '\t' &&  word[i] != '\0')
+		wc++;
+	return(wc);
 }

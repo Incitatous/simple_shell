@@ -1,6 +1,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+char **parser(char *res);
 int main(void)
 {
 	char *buffer;
@@ -21,6 +22,7 @@ int main(void)
 		write(STDOUT_FILENO, buffer, res);
 		write(STDOUT_FILENO, "$ ", 2);
 		res = getline(&buffer, &max, stdin);
+		parser(buffer);
 	}
 	exit(0); /* last addition*/
 	free(buffer);
