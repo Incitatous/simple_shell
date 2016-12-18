@@ -9,7 +9,7 @@ char **parser(char *res)
 	int i, j, k, l;
 
 	max = 100;
-	tok = strtok(res, " \t");
+	/*tok = strtok(res, " \t");*/
 	i = j = k = 0;
 	while (res[i] != '\0')
 	{
@@ -23,15 +23,19 @@ char **parser(char *res)
 		
 		i++;
 	}
+	res[i - 1] = '\0'; /* last addition */
 	store = malloc(sizeof(char *) * (j + 1));
 	if (store == NULL)
 		return(NULL);
+	tok = strtok(res, " \t");
 	i = 0;
 	store[i] = tok;
+	/* test */printf("%s--%s--%i--", tok, __FILE__, __LINE__);
 	while (tok != '\0')
 	{
 		printf("%s\n", tok);
 		tok = strtok(NULL, " \t");
+		/* test */printf("%s--%s--%i--", tok, __FILE__, __LINE__);
 		store[i] = tok;
 		i++;
 	}
