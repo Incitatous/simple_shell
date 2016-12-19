@@ -25,9 +25,11 @@ int main(/*int argc, char *argv[], char *env[]*/)
 	}
 	write(STDOUT_FILENO, "$ ", 2);
 	res = getline(&buffer, &max, stdin);
-	while (res != /*EOF*/-1)
+	while (res != /* same as EOF*/-1)
 	{
 		args = parser(buffer);
+		/* to have commands working with the full path
+		if (checkSlash != 1)*/
 		check_path(buffer, head, args, env);
 		/*write(STDOUT_FILENO, buffer, res); has to be taken out?*/
 		write(STDOUT_FILENO, "$ ", 2);
@@ -36,3 +38,13 @@ int main(/*int argc, char *argv[], char *env[]*/)
 	exit(0);
 	free(buffer);
 }
+/*
+int checkSlash(char *s)
+	while (*s != '\0')
+	{
+		if (*s == '/')
+			return (1);
+		*s++;
+	}
+	return (0);
+}*/

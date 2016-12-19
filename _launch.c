@@ -1,11 +1,4 @@
 #include "holberton.h"
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <errno.h>
-#include <stdio.h>
-
 /**
  * _launch - Launches a program.
  *
