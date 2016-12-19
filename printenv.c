@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+extern char **environ;
 /**
  * main - prints the environment
  *

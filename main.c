@@ -1,15 +1,19 @@
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include "holberton.h"
-int main(int argc, char *argv[], char *env[])
+/**
+ * main - Prints argc execpt executable
+ *
+ * Return: Always 0
+ */
+int main(/*int argc, char *argv[], char *env[]*/)
 {
+	char **env;
 	char *buffer;
-	char **line;
-	ssize_t max;
+	char **args;
+	size_t max;
 	ssize_t res;
 	kina_san *head;
 
+	env = NULL;/* last added*/
 	head = NULL;
 	buildpath(&head);
 	max = 100;
@@ -23,14 +27,12 @@ int main(int argc, char *argv[], char *env[])
 	res = getline(&buffer, &max, stdin);
 	while (res != /*EOF*/-1)
 	{
-		parser(buffer);
-		check_path(buffer, head);
-		write(STDOUT_FILENO, buffer, res);
+		args = parser(buffer);
+		check_path(buffer, head, args, env);
+		/*write(STDOUT_FILENO, buffer, res); has to be taken out?*/
 		write(STDOUT_FILENO, "$ ", 2);
 		res = getline(&buffer, &max, stdin);
-     		/*parser(buffer);
-		check_path(buffer, head);*/
 	}
-	exit(0); /* last addition*/
+	exit(0);
 	free(buffer);
 }
