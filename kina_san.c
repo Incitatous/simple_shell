@@ -1,5 +1,11 @@
 #include "holberton.h"
 
+/**
+ * buildpath - stores the tokenized PATH into a linked list
+ *
+ * @head: SE
+ * Return: pointer to array or NULL
+ */
 int buildpath(kina_san **head)
 {
 	kina_san *max;
