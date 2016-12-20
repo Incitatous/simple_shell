@@ -1,13 +1,12 @@
 # simple_shell
-
 [Recreation of a unix-like simplified shell](https://github.com/Incitatous/simple_shell).
 
-The simple_shell was created by [Max Johnson](https://github.com/Mj31508) and [Ian](https://github.com/Mj31508).
+The simple_shell was created by [Max Johnson](https://github.com/Mj31508) and [Ian](https://github.com/Incitatous).
 
 #Description
 simple_shell works as a normal shell, but does not offer the same exhaustivity and flexibility. It handles simple commands.
 
-These are the allowed functions and system calls in order to complete this assignment:
+These are the functions and system calls allowed in order to complete this assignment:
 
 
     access (man 2 access)
