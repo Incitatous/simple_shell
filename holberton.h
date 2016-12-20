@@ -20,5 +20,7 @@ char **parser(char *res);
 int buildpath(pathlist **head);
 int _launch(char *linker, char **args, char **envp);
 int check_path(char *checker, pathlist *store, char **args, char **envp);
+int checkSlash(char *s);
+extern char **environ;
 
 #endif
