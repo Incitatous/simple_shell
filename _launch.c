@@ -16,7 +16,7 @@ int _launch(char *linker, char **args, char **envp)
 	if (pid == 0)
 	{
 		if (execve(linker, args, envp) == -1)
-			printf("error");
+			perror("error");
 		exit(EXIT_FAILURE);
 	}
 	else
