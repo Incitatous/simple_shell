@@ -4,9 +4,9 @@
 The simple_shell was created by [Max Johnson](https://github.com/Mj31508) and [Ian](https://github.com/Incitatous).
 
 #Description
-simple_shell works as a normal shell, but does not offer the same exhaustivity and flexibility. It handles simple commands.
+simple_shell works as a normal shell, but does not offer either the same exhaustivity or flexibility. It handles simple commands.
 
-These are the functions and system calls allowed in order to complete this assignment:
+These were the functions and system calls allowed in order to complete this assignment:
 
 
     access (man 2 access)
@@ -41,6 +41,6 @@ These are the functions and system calls allowed in order to complete this assig
 Please note, however, that this is a simplified shell and, as such, it does not take into account scripting or complex commands using piping.
 
 #Example
-Among other commands, simple_shell handles ls, rm, echo, chmod and all the other commands in the /bin.
+Among other commands, simple_shell handles ls, rm, echo, chmod and all the other commands found in the PATH.
 
 NB: This shell follows the Betty [style](https://github.com/holbertonschool/Betty/blob/master/betty-style.pl) and [formatting](https://github.com/holbertonschool/Betty/blob/master/betty-doc.pl) guidelines.
