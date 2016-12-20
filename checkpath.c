@@ -15,16 +15,36 @@ int check_path(char *checker, pathlist *store, char **args, char **envp)
 
 	res = 0;
 	path = malloc(1000);
-	while (store != NULL)
+	if (checkSlash(args[0]))
 	{
+		res = _launch(args[0], args, envp);
+	}
+	while (store != NULL)
+	{	
 		strcpy(path, store->str);
 		strcat(path, "/");
 		strcat(path, checker);
-		/*printf("%s\n", path);*/
 		store = store->next;
 		if (access(path, X_OK) == 0)
-		/* execute _launch.c */
+		/* execute _launch.c if token is a command found in PATH */
 			res = _launch(path, args, envp);
 	}
+	free(path);
 	return (res);
+}
+
+/**
+ * checkSlash - checks if there is a slash in token
+ *
+ * Return: Always 1 or 0
+ */
+int checkSlash(char *s)
+{
+	while (*s != '\0')
+	{
+		if (*s == '/')
+			return (1);
+		s++;
+	}
+	return (0);
 }

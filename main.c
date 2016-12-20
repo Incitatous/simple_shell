@@ -13,7 +13,7 @@ int main(/*int argc, char *argv[], char *env[]*/)
 	ssize_t res;
 	pathlist *head;
 
-	env = NULL;/* last added*/
+	env = NULL;
 	head = NULL;
 	buildpath(&head);
 	max = 100;
@@ -25,26 +25,15 @@ int main(/*int argc, char *argv[], char *env[]*/)
 	}
 	write(STDOUT_FILENO, "$ ", 2);
 	res = getline(&buffer, &max, stdin);
+	/* remember to free linked list if res == -1 */
 	while (res != /* same as EOF*/-1)
 	{
 		args = parser(buffer);
-		/* to have commands working with the full path
-		if (checkSlash != 1)*/
 		check_path(buffer, head, args, env);
 		/*write(STDOUT_FILENO, buffer, res); has to be taken out?*/
 		write(STDOUT_FILENO, "$ ", 2);
 		res = getline(&buffer, &max, stdin);
 	}
-	exit(0);
 	free(buffer);
+	exit(0);
 }
-/*
-int checkSlash(char *s)
-	while (*s != '\0')
-	{
-		if (*s == '/')
-			return (1);
-		*s++;
-	}
-	return (0);
-}*/
