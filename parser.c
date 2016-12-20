@@ -15,9 +15,11 @@ char **parser(char *res)
 	i = j = k = 0;
 	while (res[i] != '\0')
 	{
-		if (res[i] != ' ' && res[i] != '\t')
+		if (res[i] != ' ' && res[i] != '\t' && res[i] != '\r'
+		&& res[i] != '\n' && res [i] != '\a')
 			k = 0;
-		if (res[i] != ' ' && res[i] != '\t' && k == 0)
+		if (res[i] != ' ' && res[i] != '\t' && res[i] != '\r'
+		&& res[i] != '\n' && res [i] != '\a'&& k == 0)
 		{
 			k = 1;
 			j++;
@@ -28,14 +30,14 @@ char **parser(char *res)
 	store = malloc(sizeof(char *) * (j + 1));
 	if (store == NULL)
 		return (NULL);
-	tok = strtok(res, " \t");
+	tok = strtok(res, " \t\r\n\a");
 	store[0] = res;
 	i = 1;
 	store[i] = tok;
 	while (tok != '\0')
 	{
 		/*printf("%s\n", tok);*/
-		tok = strtok(NULL, " \t");
+		tok = strtok(NULL, " \t\r\n\a");
 		store[i] = tok;
 		i++;
 	}
@@ -54,7 +56,8 @@ int wordlength(char *word)
 	int i, wc;
 
 	i = wc = 0;
-	while (word[i] != ' ' && word[i] != '\t' &&  word[i] != '\0')
+	while (word[i] != ' ' && word[i] != '\t' && word[i] != '\r'
+	&& word[i] != '\n' && word[i] != '\a' && word[i] != '\0')
 		wc++;
 	return (wc);
 }
