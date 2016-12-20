@@ -8,7 +8,7 @@
  * @checker: command passed
  * Return: res
  */
-int check_path(char *checker, kina_san *store, char **args, char **envp)
+int check_path(char *checker, pathlist *store, char **args, char **envp)
 {
 	char *path;
 	int res;

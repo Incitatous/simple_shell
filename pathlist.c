@@ -6,9 +6,9 @@
  * @head: SE
  * Return: pointer to array or NULL
  */
-int buildpath(kina_san **head)
+int buildpath(pathlist **head)
 {
-	kina_san *max;
+	pathlist *max;
 	char *temp, *hold;
 	int i;
 
@@ -17,7 +17,7 @@ int buildpath(kina_san **head)
 	hold = strtok(temp, ":");
 	for (i = 0; hold != '\0'; ++i)
 	{
-		max = malloc(sizeof(kina_san));
+		max = malloc(sizeof(pathlist));
 		if (max == NULL)
 			return (-1);
 		max->str = hold;

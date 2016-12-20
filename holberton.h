@@ -10,15 +10,15 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-typedef struct kina_san
+typedef struct pathlist
 {
 	char *str;
-	struct kina_san *next;
-} kina_san;
+	struct pathlist *next;
+} pathlist;
 
 char **parser(char *res);
-int buildpath(kina_san **head);
+int buildpath(pathlist **head);
 int _launch(char *linker, char **args, char **envp);
-int check_path(char *checker, kina_san *store, char **args, char **envp);
+int check_path(char *checker, pathlist *store, char **args, char **envp);
 
 #endif
