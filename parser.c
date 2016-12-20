@@ -16,12 +16,12 @@ char **parser(char *res)
 	while (res[i] != '\0')
 	{
 		if (res[i] != ' ' && res[i] != '\t' && res[i] != '\r'
-		&& res[i] != '\n' && res [i] != '\a' && res[i] != '\f'
-		&& res[i] != '\v')
+		&& res[i] != '\n' && res[i] != '\a' && res[i] != '\v'
+		&& res[i] != '\f')
 			k = 0;
 		if (res[i] != ' ' && res[i] != '\t' && res[i] != '\r'
-		&& res[i] != '\n' && res [i] != '\a' && res[i] != '\f'
-		&& res[i] != '\v' && k == 0)
+		&& res[i] != '\n' && res[i] != '\a' && res[i] != '\v'
+		&& res[i] != '\f' && k == 0)
 		{
 			k = 1;
 			j++;
@@ -35,19 +35,19 @@ char **parser(char *res)
 		free(store);
 		return (NULL);
 	}
-	tok = strtok(res, " \t\r\n\f\v\a");
+	tok = strtok(res, " \t\r\n\a\v\f");
 	store[0] = res;
 	i = 1;
 	store[i] = tok;
 	while (tok != '\0')
 	{
 		/*printf("%s\n", tok);*/
-		tok = strtok(NULL, " \t\r\n\f\v\a");
+		tok = strtok(NULL, " \t\r\n\a\v\f");
 		store[i] = tok;
 		i++;
 	}
 	store[i] = NULL;
-	free(store);/*test*/
+	/*free(store);test*/
 	return (store);
 }
 
@@ -63,7 +63,8 @@ int wordlength(char *word)
 
 	i = wc = 0;
 	while (word[i] != ' ' && word[i] != '\t' && word[i] != '\r'
-	&& word[i] != '\n' && word[i] != '\a' && word[i] != '\0')
+	&& word[i] != '\n' && word[i] != '\a' && word[i] != '\v'
+	&& word[i] != '\f' && word[i] != '\0')
 		wc++;
 	return (wc);
 }
