@@ -23,7 +23,7 @@ int main(/*int argc, char *argv[], char *env[]*/)
 		free(buffer);
 		exit(1); /* last addition */
 	}
-	write(STDOUT_FILENO, "$ ", 2);
+	write(STDOUT_FILENO, "o_o$ ", 5);
 	res = getline(&buffer, &max, stdin);
 	/* remember to free linked list if res == -1 */
 	while (res != /* same as EOF*/-1)
@@ -31,7 +31,7 @@ int main(/*int argc, char *argv[], char *env[]*/)
 		args = parser(buffer);
 		check_path(buffer, head, args, env);
 		/*write(STDOUT_FILENO, buffer, res); has to be taken out?*/
-		write(STDOUT_FILENO, "$ ", 2);
+		write(STDOUT_FILENO, "\\^O^/$ ", 7);
 		res = getline(&buffer, &max, stdin);
 	}
 	free(buffer);
