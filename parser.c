@@ -11,7 +11,6 @@ char **parser(char *res)
 	char **store;
 	int i, j, k;
 
-	/*tok = strtok(res, " \t");*/
 	i = j = k = 0;
 	while (res[i] != '\0')
 	{
@@ -41,13 +40,11 @@ char **parser(char *res)
 	store[i] = tok;
 	while (tok != '\0')
 	{
-		/*printf("%s\n", tok);*/
 		tok = strtok(NULL, " \t\r\n\a\v\f");
 		store[i] = tok;
 		i++;
 	}
 	store[i] = NULL;
-	/*free(store);test*/
 	return (store);
 }
 
