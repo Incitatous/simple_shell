@@ -11,7 +11,7 @@ int main(/*int argc, char *argv[], char *env[]*/)
 	char **args;
 	size_t max;
 	ssize_t res;
-	kina_san *head;
+	pathlist *head;
 
 	env = NULL;/* last added*/
 	head = NULL;
