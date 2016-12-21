@@ -17,8 +17,10 @@ int check_path(char *checker, pathlist *store, char **args, char **envp)
 	path = malloc(1000);
 	if (checkSlash(args[0]))
 	{
-		res = _launch(args[0], args, envp);
+		if (access(args[0], X_OK) == 0)
+			res = _launch(args[0], args, envp);
 	}
+/*	if (args[0] == "env")		*/
 	while (store != NULL)
 	{	
 		strcpy(path, store->str);

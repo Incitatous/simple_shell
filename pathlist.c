@@ -19,7 +19,10 @@ int buildpath(pathlist **head)
 	{
 		max = malloc(sizeof(pathlist));
 		if (max == NULL)
+		{
+			free(max);
 			return (-1);
+		}
 		max->str = hold;
 		max->next = *head;
 		*head = max;

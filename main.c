@@ -30,7 +30,6 @@ int main(/*int argc, char *argv[], char *env[]*/)
 	{
 		args = parser(buffer);
 		check_path(buffer, head, args, env);
-		/*write(STDOUT_FILENO, buffer, res); has to be taken out?*/
 		write(STDOUT_FILENO, "\\^O^/$ ", 7);
 		res = getline(&buffer, &max, stdin);
 	}
