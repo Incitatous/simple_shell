@@ -8,14 +8,14 @@
 int myBuiltins(char **args)
 {
 	int i;
-
-	i = 0;
 	builtins commands[] = {
 		{"env", printenv},
 		{"exit", my_exit},
 		/*{"cd", _cd},*/
 		{NULL, NULL}
 	};
+
+	i = 0;
 	while (commands[i].s != NULL)
 	{
 		if (_strcmp(args[0], commands[i].s) == 0)
