@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "holberton.h"
 /**
- * main - prints the environment
+ * printenv - prints the environment
  *
  * Return: Always 0.
  */

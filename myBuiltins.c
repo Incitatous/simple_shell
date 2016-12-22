@@ -21,7 +21,7 @@ int myBuiltins(char **args)
 		if (_strcmp(args[0], commands[i].s) == 0)
 		{
 			(commands[i].function)(args[0]);
-			return(1);
+			return (1);
 		}
 		i++;
 	}

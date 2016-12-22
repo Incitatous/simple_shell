@@ -24,7 +24,7 @@ int check_path(char *checker, pathlist *store, char **args, char **envp)
 	}
 /*	if (args[0] == "env")		*/
 	while (store != NULL)
-	{	
+	{
 		_strcpy(path, store->str);
 		_strcat(path, "/");
 		_strcat(path, checker);
@@ -44,6 +44,7 @@ int check_path(char *checker, pathlist *store, char **args, char **envp)
 /**
  * checkSlash - checks if there is a slash in token
  *
+ * @s: string passed
  * Return: Always 1 or 0
  */
 int checkSlash(char *s)

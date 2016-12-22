@@ -31,7 +31,7 @@ int main(/*int argc, char *argv[], char *env[]*/)
 		args = parser(buffer);
 		if (myBuiltins(args) == 0)
 			if (check_path(buffer, head, args, env) == 0)
-				write(STDOUT_FILENO, "Command not found\n", 18); 
+				write(STDOUT_FILENO, "Command not found\n", 18);
 		write(STDOUT_FILENO, "\\^O^/$ ", 7);
 		res = getline(&buffer, &max, stdin);
 	}
@@ -39,6 +39,6 @@ int main(/*int argc, char *argv[], char *env[]*/)
 	free(args);
 	free(buffer);
 	/* FREEDOM !! linked list */
-	_free(head);	
+	_free(head);
 	exit(0);
 }
