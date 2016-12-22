@@ -16,11 +16,25 @@ typedef struct pathlist
 	struct pathlist *next;
 } pathlist;
 
+typedef struct builtins
+{
+	char *s;
+	int (*function)();		
+} builtins;
+
 char **parser(char *res);
 int buildpath(pathlist **head);
 int _launch(char *linker, char **args, char **envp);
 int check_path(char *checker, pathlist *store, char **args, char **envp);
 int checkSlash(char *s);
 extern char **environ;
+int _strcmp(char *s1, char *s2);
+char *_strcpy(char *dest, char *src);
+char *_strcat(char *dest, char *src);
+int myBuiltins(char **args);
+int printenv(void);
+int my_exit(char **args);
+int _cd(char **args);
+void _free(pathlist *head);
 
 #endif
