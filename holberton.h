@@ -10,16 +10,28 @@
 #include <unistd.h>
 #include <fcntl.h>
 
+/**
+ * struct pathlist - Lists each token from the path
+ *
+ * @str: SE
+ * @next: SE
+ */
 typedef struct pathlist
 {
 	char *str;
 	struct pathlist *next;
 } pathlist;
 
+/**
+ * struct builtins - Stores the builtin commands
+ *
+ * @s: SE
+ * @function: SE
+ */
 typedef struct builtins
 {
 	char *s;
-	int (*function)();		
+	int (*function)();
 } builtins;
 
 char **parser(char *res);
