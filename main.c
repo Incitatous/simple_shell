@@ -1,6 +1,6 @@
 #include "holberton.h"
 /**
- * main - Prints argc execpt executable
+ * main - Prints argc except executable
  *
  * Return: Always 0
  */
@@ -29,10 +29,16 @@ int main(/*int argc, char *argv[], char *env[]*/)
 	while (res != /* same as EOF*/-1)
 	{
 		args = parser(buffer);
-		check_path(buffer, head, args, env);
+		if (myBuiltins(args) == 0)
+			if (check_path(buffer, head, args, env) == 0)
+				write(STDOUT_FILENO, "Command not found\n", 18); 
 		write(STDOUT_FILENO, "\\^O^/$ ", 7);
 		res = getline(&buffer, &max, stdin);
 	}
+	/* last addition */
+	free(args);
 	free(buffer);
+	/* FREEDOM !! linked list */
+	_free(head);	
 	exit(0);
 }

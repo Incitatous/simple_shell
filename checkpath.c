@@ -11,28 +11,34 @@
 int check_path(char *checker, pathlist *store, char **args, char **envp)
 {
 	char *path;
-	int res;
 
-	res = 0;
 	path = malloc(1000);
 	if (checkSlash(args[0]))
 	{
 		if (access(args[0], X_OK) == 0)
-			res = _launch(args[0], args, envp);
+		{
+			_launch(args[0], args, envp);
+			free(path);
+			return (1);
+		}
 	}
 /*	if (args[0] == "env")		*/
 	while (store != NULL)
 	{	
-		strcpy(path, store->str);
-		strcat(path, "/");
-		strcat(path, checker);
+		_strcpy(path, store->str);
+		_strcat(path, "/");
+		_strcat(path, checker);
 		store = store->next;
 		if (access(path, X_OK) == 0)
+		{
 		/* execute _launch.c if token is a command found in PATH */
-			res = _launch(path, args, envp);
+			_launch(path, args, envp);
+			free(path);
+			return (1);
+		}
 	}
 	free(path);
-	return (res);
+	return (0);
 }
 
 /**
