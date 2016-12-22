@@ -8,5 +8,6 @@
 int my_exit(char **args)
 {
 	free(args);
-	exit(98);
+	/*exit(98)*/
+	exit(0);
 }
