@@ -20,6 +20,7 @@ int myBuiltins(char **args)
 	{
 		if (_strcmp(args[0], commands[i].s) == 0)
 		{
+		/*checks if builtin exists and if so, executes & returns 1 */
 			(commands[i].function)(args[0]);
 			return (1);
 		}

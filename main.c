@@ -21,24 +21,23 @@ int main(/*int argc, char *argv[], char *env[]*/)
 	if (buffer == NULL)
 	{
 		free(buffer);
-		exit(1); /* last addition */
+		exit(1);
 	}
 	write(STDOUT_FILENO, "o_o$ ", 5);
 	res = getline(&buffer, &max, stdin);
-	/* remember to free linked list if res == -1 */
 	while (res != /* same as EOF*/-1)
 	{
 		args = parser(buffer);
+		/* checks if builtins exist, if not tries the PATH */
 		if (myBuiltins(args) == 0)
 			if (check_path(buffer, head, args, env) == 0)
 				write(STDOUT_FILENO, "Command not found\n", 18);
 		write(STDOUT_FILENO, "\\^O^/$ ", 7);
 		res = getline(&buffer, &max, stdin);
 	}
-	/* last addition */
 	free(args);
 	free(buffer);
-	/* FREEDOM !! linked list */
+	/* freeing the linked list */
 	_free(head);
 	exit(0);
 }

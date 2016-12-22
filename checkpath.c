@@ -17,12 +17,12 @@ int check_path(char *checker, pathlist *store, char **args, char **envp)
 	{
 		if (access(args[0], X_OK) == 0)
 		{
+		/* executes _launch if the PATH is executable (i.e. /bin/ls */
 			_launch(args[0], args, envp);
 			free(path);
 			return (1);
 		}
 	}
-/*	if (args[0] == "env")		*/
 	while (store != NULL)
 	{
 		_strcpy(path, store->str);
