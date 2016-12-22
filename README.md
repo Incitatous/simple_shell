@@ -42,5 +42,6 @@ Please note, however, that this is a simplified shell and, as such, it does not 
 
 #Example
 Among other commands, simple_shell handles ls, rm, echo, chmod and all the other commands found in the PATH.
+simple_shell also has two builtins: env and exit. The former prints the environment, the latter exits the shell.
 
 NB: This shell follows the Betty [style](https://github.com/holbertonschool/Betty/blob/master/betty-style.pl) and [formatting](https://github.com/holbertonschool/Betty/blob/master/betty-doc.pl) guidelines.

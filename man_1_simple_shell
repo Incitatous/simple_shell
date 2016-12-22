@@ -1,4 +1,4 @@
-.TH _printf 3 "19 November 2016" "0.07" "_printf man page"
+.TH simple_shell 3 "22 December 2016" "1.0" "simple_shell man page"
 .SH NAME
 simple_shell
 .SH SYNOPSIS
@@ -6,10 +6,11 @@ Simplified shell
 .SH DESCRIPTION
 Command-line interpreter based on the Unix shell. Takes in and executes commands from the user through a terminal.
 .SH OPTIONS
-This simplified shell prompts the user to type a command. A command line always ends with a new line. The prompt is displayed again each time a command has been executed. The command lines are simple: the simple_shell does not take into account semi-columns, pipes or any other adavanced features. Indeed, the command lines are made of only one word. No arguments will be passed to programs. If no executable is found, the simple_shell prints an error message and displays the prompt again. It also handles errors and the EOF condition. The simple_shell exits with 0. 
+This simplified shell prompts the user to type a command. A command line always ends with a new line. The prompt is displayed again each time a command has been executed. The command lines are simple: the simple_shell does not take into account semi-columns, pipes or any other adavanced features. It does, however, handle commands found in the path such as ls, chmod, echo, etc. If no executable is found, the simple_shell prints an error message and displays the prompt again. It also handles errors and the EOF condition. The simple_shell exits with 0.
+simple_shell has two builtin commands: env - which prints the environment - and exits - which exits the shell.
 .SH BUGS
-The following tests were run under Vagrant, Ubuntu 14.04. 
-SPECIFY BUGS
+The following tests were run under Vagrant, Ubuntu 14.04.
+The simple_shell cannot handle piping or scripting. It does not allow to go back in history.
 .B Also, see Betty style and documentation for more details about the tests and the format chosen:
 https://github.com/holbertonschool/Betty/blob/master/betty-style.pl and https://github.com/holbertonschool/Betty/blob/master/betty-doc.pl.
 .SH AUTHOR
