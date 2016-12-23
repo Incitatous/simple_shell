@@ -40,6 +40,7 @@ int _launch(char *linker, char **args, char **envp);
 int check_path(char *checker, pathlist *store, char **args, char **envp);
 int checkSlash(char *s);
 extern char **environ;
+char *_getenv(char *name);
 int _strcmp(char *s1, char *s2);
 char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
