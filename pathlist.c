@@ -13,7 +13,7 @@ int buildpath(pathlist **head)
 	int i;
 
 	*head = NULL;
-	temp = getenv("PATH");
+	temp = _getenv("PATH");
 	hold = strtok(temp, ":");
 	for (i = 0; hold != '\0'; ++i)
 	{
